@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<h1><a class="text-decoration-none text-dark" href="/">Edit Movie</a></h1>
+<form class="form-group" action="#" th:action="@{/save}" method="post" th:object="${movie}" >
+    Id:
+    <input class="form-control" type="text" th:field="*{id}" readonly /><br />
+
+    Name:
+    <input class="form-control" type="text" th:field="*{name}" /><br />
+
+    Writer:
+    <input class="form-control" type="text" th:field="*{writerName}"/><br />
+
+    Synopsis:
+    <textarea maxlength="250" class="form-control" type="text" th:field="*{synopsis}"/><br />
+
+    Release Year:
+    <input class="form-control" type="number" th:field="*{releaseDate}"/><br />
+
+    Poster Image:
+    <input class="form-control" type="text" th:field="*{imgUrl}"/><br />
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Movie</title>
+    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<h1><a class="text-decoration-none text-dark" href="/">New Movie</a></h1>
+<form class="form-group" action="#" th:action="@{/save}" method="post" th:object="${movie}" >
+    Name:
+    <input type="text" class="form-control" th:field="*{name}" name="name"/><br />
+    <p class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{name}"></p>
+
+    Writer: <input class="form-control" type="text" th:field="*{writerName} " name="writerName"/><br />
+    <p class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{writerName}"></p>
+
+    Synopsis: <textarea maxlength="250" class="form-control" type="text" th:field="*{synopsis} " name="synopsis"/><br />
+    <p class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{synopsis}"></p>
+
+    Release Year: <input class="form-control" type="number" th:field="*{releaseDate} " name="releaseDate"/><br />
+    <p class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{releaseDate}"></p>
+
+    Poster Image: <input class="form-control" type="text" th:field="*{imgUrl} " name="imgUrl"/><br />
+    <p class="text-danger" th:if="${#fields.hasErrors()}" th:errors="*{imgUrl}"></p>
+
+    <button class="btn btn-primary" type="submit">Add</button>
+</form>
+</div>
+</body>
+</html>
